@@ -5,4 +5,4 @@ if(!$password) {
   exit
 }
 
-knife winrm -a ipaddress -x chef -P $password "roles:teardrop" "chef-client"
+knife winrm -a ipaddress -x chef -P "$password" "roles:teardrop" "chef-client"

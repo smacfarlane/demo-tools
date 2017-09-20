@@ -18,7 +18,7 @@ $chef_ip = [System.Net.Dns]::GetHostAddresses("chef.automate-demo.com")
 
 $userdataTemplate = Get-Content -Raw ".\user-data.dtsx"
 $userdataTemplate = $userdataTemplate.Replace("[CHEF_IP]", $chef_ip)
-$userdataTemplate = $userdataTemplate.Replace("[CHEF_PASSWORD]", $password)
+$userdataTemplate = $userdataTemplate.Replace("[CHEF_PASSWORD]", "$password")
 Set-Content -Encoding utf8 "./user-data" $userdataTemplate
 
 Write-Host -ForegroundColor green "Creating Windows Instance"
@@ -30,6 +30,6 @@ knife ec2 server create `
 --config ./knife.rb `
 --user-data ./user-data `
 --winrm-user '.\chef' `
---winrm-password "Cod3Can" `
+--winrm-password "$password" `
 --associate-public-ip `
 --run-list "role[teardrop]" 
