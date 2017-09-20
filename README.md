@@ -2,6 +2,7 @@
 
 * Scripts are executed from a Windows workstation in a BJC demo environment
 * Demo environment is in us-west-2
+* Commands are executed from within the `wannacry` directory
 
 # Usage
 
